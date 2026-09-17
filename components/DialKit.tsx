@@ -439,7 +439,12 @@ export default function PhotoGalleryApp() {
         onReset={resetPhotos}
       />
 
-      <DialRoot position="top-right" theme="system" defaultOpen productionEnabled />
+      <DialRoot
+        position="top-right"
+        theme={nightMode ? 'dark' : 'light'}
+        defaultOpen
+        productionEnabled
+      />
     </div>
   )
 }

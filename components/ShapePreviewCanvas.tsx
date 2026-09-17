@@ -33,25 +33,19 @@ export default function ShapePreviewCanvas({
     drawShapePreview(canvas, shape, nightMode, dpr, size, theme)
   }, [shape, nightMode, size, theme])
 
-  const labelColor =
-    theme === 'dialkit'
-      ? active
-        ? 'rgba(255, 255, 255, 0.88)'
-        : 'rgba(255, 255, 255, 0.52)'
-      : active
-        ? nightMode
-          ? '#FAFAFA'
-          : '#0A0A0A'
-        : nightMode
-          ? '#777777'
-          : '#AAAAAA'
+  const panelDark = theme === 'dialkit' ? nightMode : nightMode
 
-  const activeBorder =
-    theme === 'dialkit'
-      ? '2px solid rgba(255, 255, 255, 0.42)'
-      : nightMode
-        ? '2px solid rgba(255, 255, 255, 0.35)'
-        : '2px solid rgba(0, 0, 0, 0.28)'
+  const labelColor = panelDark
+    ? active
+      ? 'rgba(255, 255, 255, 0.88)'
+      : 'rgba(255, 255, 255, 0.52)'
+    : active
+      ? 'rgba(0, 0, 0, 0.82)'
+      : 'rgba(0, 0, 0, 0.45)'
+
+  const activeBorder = panelDark
+    ? '2px solid rgba(255, 255, 255, 0.42)'
+    : '2px solid rgba(0, 0, 0, 0.28)'
 
   return (
     <button

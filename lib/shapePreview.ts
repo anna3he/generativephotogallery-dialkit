@@ -15,7 +15,9 @@ function d(
 }
 
 function previewPalette(theme: PreviewTheme, nightMode: boolean) {
-  if (theme === 'dialkit') {
+  const dark = theme === 'dialkit' ? nightMode : nightMode
+
+  if (dark) {
     return {
       bg: 'rgba(255, 255, 255, 0.08)',
       fg: 'rgba(255, 255, 255, 0.52)',
@@ -24,10 +26,10 @@ function previewPalette(theme: PreviewTheme, nightMode: boolean) {
     }
   }
   return {
-    bg: nightMode ? '#252525' : '#EBEBEB',
-    fg: nightMode ? '#CCCCCC' : '#444444',
-    fgStrong: nightMode ? '#E8E8E8' : '#333333',
-    fgSoft: nightMode ? '#888888' : '#767676',
+    bg: 'rgba(0, 0, 0, 0.04)',
+    fg: 'rgba(0, 0, 0, 0.45)',
+    fgStrong: 'rgba(0, 0, 0, 0.62)',
+    fgSoft: 'rgba(0, 0, 0, 0.32)',
   }
 }
 
