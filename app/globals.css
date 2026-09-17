@@ -1,0 +1,550 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --shadow-x: 0px;
+  --shadow-y: 1px;
+  --shadow-blur: 2px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.05;
+  --shadow-color: #000000;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.269 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.371 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.439 0 0);
+  --shadow-x: 0px;
+  --shadow-y: 1px;
+  --shadow-blur: 2px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.05;
+  --shadow-color: #000000;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* computed shadow variables below - do not modify */
+  --shadow-2xs: var(--shadow-x) var(--shadow-y) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-xs: var(--shadow-x) var(--shadow-y) var(--shadow-blur) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-sm: var(--shadow-x) var(--shadow-y) calc(var(--shadow-blur) * 1.5) var(--shadow-spread) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-md: calc(var(--shadow-x) * 2) calc(var(--shadow-y) * 2) calc(var(--shadow-blur) * 3) calc(var(--shadow-spread) - 1px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-lg: calc(var(--shadow-x) * 4) calc(var(--shadow-y) * 4) calc(var(--shadow-blur) * 5) calc(var(--shadow-spread) - 3px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-xl: calc(var(--shadow-x) * 6) calc(var(--shadow-y) * 6) calc(var(--shadow-blur) * 7) calc(var(--shadow-spread) - 5px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  --shadow-2xl: calc(var(--shadow-x) * 8) calc(var(--shadow-y) * 8) calc(max(0px, var(--shadow-blur) * 9 - 8px)) calc(var(--shadow-spread) - 12px) color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 250%), transparent);
+  --shadow: var(--shadow-md);
+  --color-shadow-color: var(--shadow-color);
+  --shadow-opacity: var(--shadow-opacity);
+  --shadow-spread: var(--shadow-spread);
+  --shadow-blur: var(--shadow-blur);
+  --shadow-y: var(--shadow-y);
+  --shadow-x: var(--shadow-x);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ─── Base Design System: Type scale + Spacing tokens ─── */
+/* Source: Design System V2 — Base mode */
+:root {
+  /* Type tokens (size / line-height / letter-spacing locked per level) */
+  --type-h3-size:   17px;
+  --type-h3-lh:     1.35;
+  --type-h3-ls:     -0.01em;
+
+  --type-body-size: 14px;
+  --type-body-lh:   1.6;
+  --type-body-ls:   -0.004em;
+
+  --type-caption-size: 12px;
+  --type-caption-lh:   1.5;
+  --type-caption-ls:   0em;
+
+  /* Label: 11px / 500 / ALL CAPS / +0.07em — used for tags, overlines, dial names, shape names */
+  --type-label-size: 11px;
+  --type-label-lh:   1.05;
+  --type-label-ls:   0.07em;
+
+  /* 4px base spacing tokens */
+  --s1:  4px;
+  --s2:  8px;
+  --s3:  12px;
+  --s4:  16px;
+  --s6:  24px;
+  --s8:  32px;
+  --s10: 40px;
+  --s12: 48px;
+  --s16: 64px;
+}
+
+/* Paired type utilities — always apply size + line-height + tracking together */
+.type-h3 {
+  font-size:      var(--type-h3-size);
+  line-height:    var(--type-h3-lh);
+  letter-spacing: var(--type-h3-ls);
+  font-weight:    400;
+}
+
+.type-body {
+  font-size:      var(--type-body-size);
+  line-height:    var(--type-body-lh);
+  letter-spacing: var(--type-body-ls);
+  font-weight:    400;
+}
+
+.type-caption {
+  font-size:      var(--type-caption-size);
+  line-height:    var(--type-caption-lh);
+  letter-spacing: var(--type-caption-ls);
+  font-weight:    400;
+}
+
+/* Label: ALL CAPS, open tracking — section tags, dial names, shape names, overlines */
+.type-label {
+  font-size:      var(--type-label-size);
+  line-height:    var(--type-label-lh);
+  letter-spacing: var(--type-label-ls);
+  text-transform: uppercase;
+  font-weight:    400;
+}
+
+/* Material Symbols Outlined — size 20 / weight 300 / no fill */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 20;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-style: normal;
+}
+
+/* Hide DialKit version/preset picker and copy toolbar icons */
+.dialkit-preset-manager,
+.dialkit-panel-section-toolbar,
+.dialkit-panel-section-toolbar-clip {
+  display: none !important;
+}
+
+/* Root panel title — library hardcodes "DialKit" */
+.dialkit-folder-title.dialkit-folder-title-root {
+  font-size: 0;
+  line-height: 0;
+}
+
+.dialkit-folder-title.dialkit-folder-title-root::after {
+  content: 'Controls';
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dial-text-root);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  display: inline-block;
+  transform: translateY(-0.5px);
+}
+
+/* Shape panel: hide fallback action buttons; show injected 2x2 grid */
+.dialkit-folder-section:has([data-dialkit-host='shape']) .dialkit-button {
+  display: none !important;
+}
+
+.dialkit-shape-grid {
+  width: 100%;
+}
+
+.dialkit-shape-grid .grid {
+  width: 100%;
+}
+
+/* Material icon prefix on Photos action buttons */
+.dialkit-button[data-icon] {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+.dialkit-button[data-icon]::before {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 20;
+  font-size: 16px;
+  line-height: 1;
+  content: attr(data-icon);
+}
+
+/* ─── DialKit-styled modal (Manage Photos) ─── */
+.dialkit-modal-overlay {
+  font-family: system-ui, -apple-system, 'SF Pro Display', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dialkit-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+.dialkit-modal {
+  background: #212121;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.dialkit-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dialkit-modal-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.dialkit-modal-count {
+  margin-left: 8px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dialkit-modal-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dialkit-modal-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dialkit-modal-icon-btn .material-symbols-outlined {
+  font-size: 14px;
+}
+
+.dialkit-modal-body {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.dialkit-modal-empty {
+  margin: 0;
+  padding: 32px 0;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dialkit-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.dialkit-modal-thumb {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.05);
+  transition: border-color 0.15s, opacity 0.15s;
+}
+
+.dialkit-modal-thumb.is-selected {
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.dialkit-modal-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dialkit-modal-thumb-check {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px !important;
+}
+
+.dialkit-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dialkit-modal-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dialkit-modal-meta {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dialkit-modal-btn {
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dialkit-modal-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dialkit-modal-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dialkit-modal-btn-destructive:not(:disabled) {
+  color: rgba(255, 170, 170, 0.95);
+  background: rgba(255, 90, 90, 0.12);
+}
+
+.dialkit-modal-btn-destructive:not(:disabled):hover {
+  color: rgba(255, 210, 210, 0.98);
+  background: rgba(255, 90, 90, 0.2);
+}
+
+/* ─── Canvas interaction hint (bottom bar) ─── */
+.canvas-hint-bar {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-family: system-ui, -apple-system, 'SF Pro Display', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-transform: none;
+  transition: opacity 0.15s;
+}
+
+.canvas-hint-bar[data-night='true'] {
+  color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.canvas-hint-bar[data-night='false'] {
+  color: rgba(0, 0, 0, 0.42);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.canvas-hint-bar.is-hidden {
+  opacity: 0;
+}
+
+/* ─── Canvas empty state ─── */
+.canvas-empty-state-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.canvas-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  gap: 12px;
+  font-family: system-ui, -apple-system, 'SF Pro Display', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.canvas-empty-state-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.canvas-empty-state[data-night='true'] .canvas-empty-state-icon {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.canvas-empty-state[data-night='false'] .canvas-empty-state-icon {
+  background: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.38);
+}
+
+.canvas-empty-state-icon .material-symbols-outlined {
+  font-size: 22px;
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+}
+
+.canvas-empty-state-text {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+.canvas-empty-state[data-night='true'] .canvas-empty-state-text {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.canvas-empty-state[data-night='false'] .canvas-empty-state-text {
+  color: rgba(0, 0, 0, 0.42);
+}
